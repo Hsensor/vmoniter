@@ -1,0 +1,17 @@
+<div class="container-wrap">
+	<div class="navigator-wrap">
+		<div class="btn-group" ng-show='$state.current.url.indexOf("disk")>-1'>
+				<a ui-sref="main.diskPerformance" ui-sref-active="active" href="#/disk" class="btn btn-default btn-sm">性能层%</a>
+		  	<a ui-sref="main.diskCapacity" ui-sref-active="active" href="#/disk/capacity" class="btn btn-default btn-sm">容量层%</a>
+		  	<a ui-sref="main.diskPerformanceSize" ui-sref-active="active" href="#/disk/psize" class="btn btn-default btn-sm">性能层</a>
+		  	<a ui-sref="main.diskCapacitySize" ui-sref-active="active" href="#/disk/csize" class="btn btn-default btn-sm">容量层</a>
+		  	<!-- <a ui-sref="main.diskCHLayer"  ui-sref-active="active" href="#/disk/disktype"class="btn btn-default btn-sm">冷热层</a>
+		  	<a ui-sref="main.diskType"  ui-sref-active="active" href="#/disk/disktype" class="btn btn-default btn-sm">磁盘类型</a> -->
+		</div>
+		<div class="btn-group" ng-show='$state.current.url.indexOf("task")>-1'>
+		  	<a ui-sref="main.taskOverview" ui-sref-active="active"  class="btn btn-default btn-sm">概览</a>
+		  	<a ui-sref="main.taskDetail"  ui-sref-active="active" class="btn btn-default btn-sm">详情</a>
+		</div>
+	</div>
+	<ui-view name="wrap"></ui-view>
+</div>

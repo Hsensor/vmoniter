@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-sm-12">
+		<highchart config="taskChart"></highchart>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<input type="text" ng-value="2048*2048*2048|unit_conversion:({startUnit:'KB',endUnit:'GB'})">
+		<input type="text" ng-value="dateObj|conversionDate:'yyyy-MM-dd HH:mm:ss'">
+		<div contentEditable="true" ng-model="content" title="Click to edit">Some</div>  
+		<pre>model = {{content}}</pre>
+		{{dateObj|conversionDate:'yyyy-MM-dd HH:mm:ss'}}
+		{{dateObj|date:'yyyy-MM-dd HH:mm:ss'}}
+		<br>
+		{{person.name}}  {{person.age}}
+		asdfsdf
+	</div>
+</div>

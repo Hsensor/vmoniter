@@ -1,0 +1,76 @@
+<div class="grid-container">
+    <div class="grid">
+        <table>
+            <thead>
+                <tr  ng-style="{height:{{gridOptions.rowHeight}}}" class="{{gridOptions.rowClass}}">
+                    <th class="cell-select" ng-click="selecedtHandler()" ng-class='{"active":vm.allSelected}' ng-show="gridOptions.showCheckedBox" ng-style="{height:{{gridOptions.rowHeight}},width:{{gridOptions.rowHeight}}}">
+                        <div  class="select-wrap {{gridOptions.cellSelectClass}}" ng-show="gridOptions.multipleSelected&&gridOptions.rowCellSelecteTemplate">
+                            <grid-selecte-cell rowcellselectetemplate='gridOptions.rowCellSelecteTemplate'></grid-selecte-cell>
+                        </div>
+    
+                        <div class="select-wrap {{gridOptions.cellSelectClass}}" ng-show="gridOptions.multipleSelected&&!gridOptions.rowCellSelecteTemplate">
+                            <div ng-class='{"checkboxSelect":gridOptions.multipleSelected,"radioSelect":!gridOptions.multipleSelected}'></div>
+                        </div>
+                    </th>
+                    <th ng-repeat="columnDef in columnDefs track by $index" class="clearfix"  ng-click="columnSortHandler(columnDef)" >
+                        <span class="row-header pull-left" ng-class='{"row-header-tip-active":columnDef.active}'ng-show="!columnDef.headerCellTemplate" ng-bind="columnDef.displayName">
+                        </span>
+    
+                        <span class="row-header"  class="pull-left" ng-class='{"row-header-tip-active":columnDef.active}' ng-show="columnDef.headerCellTemplate">
+                            <grid-header-cell headercelltemplate="columnDef.headerCellTemplate">
+                            </grid-header-cell>
+                        </span>
+                        <span class="pull-right sort-wrap">
+                            <span class="header-sort-tip" ng-show="!columnDef.notSorted"></span>
+                            <span class="header-tip" ng-show="!columnDef.notSorted" ng-class='{"header-tip-up":columnDef.flag==-1,"header-tip-down":columnDef.flag==1}'></span>
+                        </span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  ng-style="{height:{{gridOptions.rowHeight}}}" class="{{gridOptions.rowClass}}" ng-repeat="row in rows track by $index"  ng-click="rowClick(row,$index)" ng-class='{"active":row.selected}'>
+                    <td class="cell-select" ng-show="gridOptions.showCheckedBox" ng-style="{height:{{gridOptions.rowHeight}},width:{{gridOptions.rowHeight}}}">
+    
+                        <div class="select-wrap {{gridOptions.cellSelectClass}}" ng-show="gridOptions.rowCellSelecteTemplate" >
+                            <grid-selecte-cell rowcellselectetemplate='gridOptions.rowCellSelecteTemplate'></grid-selecte-cell>
+                        </div>
+    
+                        <div class="select-wrap {{gridOptions.cellSelectClass}}" ng-show="!gridOptions.rowCellSelecteTemplate">
+                            <div ng-class='{"checkboxSelect":gridOptions.multipleSelected,"radioSelect":!gridOptions.multipleSelected}'></div>
+                        </div>
+                    </td>
+                    <td ng-repeat="columnDef in columnDefs" >
+                        <span ng-show="!columnDefs[$index].cellTemplate" ng-bind="row[columnDefs[$index].name]">
+                        </span>
+                        <span ng-show="columnDefs[$index].cellTemplate">
+                            <grid-cell celltemplate="columnDefs[$index].cellTemplate"></grid-cell>
+                        </span>
+                    </td>
+                </tr>
+    
+                <tr class="{{gridOptions.rowClass}}"  ng-style="{height:{{gridOptions.rowHeight}}}" ng-repeat="blankRow in blankRows track by $index">
+                    <td colspan="{{ gridOptions.showCheckedBox ? columnDefs.length+1 : columnDefs.length }}">
+                        <div class="nodata-tip" ng-show="$index==0 && !gridOptions.loading && !rows.length">{{gridOptions.noDataText}}</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ul pagination total-items="totalItems" ng-hide="gridOptions.refresh" ng-model="gridOptions.currentPage" first-text="gridOptions.firstText" previous-text="gridOptions.previousText" next-text="gridOptions.nextText" request-data-obj="gridOptions.requestDataObj" last-text="gridOptions.lastText" ng-disabled="gridOptions.disabled"></ul>
+    
+    <div class="grid-loading-wrap"  ng-show="gridOptions.loading">
+        <!-- <div class="grid-loading-mask">
+            <div class="grid-loading">
+            </div>
+        </div> -->
+        <div class="el-loading-mask" >
+            <div class="el-loading-spinner">
+                <svg viewBox="25 25 50 50" class="circular">
+                    <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+                </svg>
+                <p class="el-loading-text">Loading...</p>
+            </div>
+        </div>
+    </div>
+</div>

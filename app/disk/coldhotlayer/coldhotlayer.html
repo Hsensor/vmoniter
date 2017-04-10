@@ -1,0 +1,34 @@
+<div>
+	<!-- <div class="clearfix">
+		<label>
+		    粒度：<select ng-model="period" ng-options="period for period in periods" ></select>
+		</label>
+	
+		<label>
+		    时间范围：<select ng-model="timeObj" ng-options="timeObj.text for timeObj in times"  ng-change="init(timeObj.time)"></select>
+		</label>
+		<button class="pull-right" ng-click="init(timeObj.time)" style="margin-bottom:2px"><span class="glyphicon glyphicon-refresh"></span>刷新</button>
+	</div> -->
+	<init-search times="times" time-obj="timeObj" periods="periods" period="period" init="init"></init-search>
+	<div>
+		<div>
+			<p class="bg-primary" style="padding:10px 0">
+		  		SSD 
+			</p>
+			<div class="disk">
+				<highchart config="SSDChart" style="width:96%;margin:0 auto;"></highchart>
+			</div>
+		</div>
+	</div>
+	<div>
+		<div>
+			<p class="bg-primary" style="padding:10px 0">
+		  		HDD 
+			</p>
+			<div class="disk">
+				<highchart config="HDDChart"></highchart>
+			</div>
+		</div>
+	</div>
+	
+</div>

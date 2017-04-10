@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col-xs-12">
+		<init-search times="times" time-obj="timeObj" periods="periods" period="period" init="init"></init-search>
+	</div>
+</div>
+
+<div class="row">	
+	<div class="col-xs-12">
+		<div class="checkbox" style="margin-top:4px;margin-bottom:4px;">
+	        选择节点:
+	        <span ng-repeat="host in hosts track by $index"  style="margin-left:20px;">
+		        <input type="checkbox" id="{{$index}}" ng-checked="host.checked" ng-click = "loadHostChart(timeObj.time,host)">节点{{host.hostIp}}
+	        </span>
+      </div>
+	</div>
+</div>
+
+<div ng-repeat="hostChart in hostCharts">
+	<div>
+		<p class="bg-primary" style="padding:10px 0">
+	  		{{hostChart.titleText}}
+		</p>
+		<div class="disk">
+			<highchart config="hostChart"></highchart>
+		</div>
+	</div>
+</div>

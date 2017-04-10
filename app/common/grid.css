@@ -1,0 +1,333 @@
+.grid-container{
+  position: relative;
+}
+.grid > table {
+  margin: 0 auto;
+  clear: both;
+  width: 100%;
+  font-size: 12px;
+  background: white;
+  border-radius: 2px;
+  border-collapse: collapse;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+.grid thead {
+  margin: 0 auto;
+  clear: both;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 500;
+  background: white;
+  border-radius: 2px;
+  border-collapse: collapse;
+  border: 1px solid #dddddd;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+.grid > table tr {
+  width: auto;
+}
+.grid > table tr th {
+  -webkit-user-select: none;
+  user-select: none;
+  ms-user-select: none;
+  -moz-user-select: none;
+  color: #6f787e;
+  font-size: 10px;
+  line-height: 15px;
+  font-weight: 400;
+  text-align: left;
+  text-transform: uppercase;
+  position: relative;
+  cursor: pointer;
+  border:1px solid #dddddd;
+}
+.grid > table tr td {
+  border:1px solid #dddddd;
+  margin:-1px;
+  word-wrap: break-word;
+  height: 26px;
+}
+.grid > table tr td:not(:first-child),.grid > table tr th:not(:first-child){
+  padding-left: 10px;
+}
+.grid > table tr.active {
+  background-color: #e0f5fc;
+}
+.grid > table tr.active:hover {
+  background-color: #e0f5fc;
+}
+.grid > table tr:hover {
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+.row-header {
+  display: inline-block;
+}
+.sort-wrap {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -7px;
+}
+.header-sort-tip:before {
+  position: absolute;
+  top: 50%;
+  content: "";
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #ccc;
+}
+.header-sort-tip:after {
+  position: absolute;
+  content: "";
+  margin-top: 7px;
+  top: 50%;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #ccc;
+}
+.header-tip:before {
+  position: absolute;
+  content: "";
+  display: none;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+.header-tip-up:before {
+  border-bottom: 5px solid #ccc;
+}
+.header-tip-down:before {
+  border-top: 5px solid #ccc;
+}
+.row-header-tip-active + .sort-wrap .header-sort-tip {
+  display: none;
+}
+.row-header-tip-active + .sort-wrap .header-tip:before {
+  display: block;
+}
+.grid table tr > .cell-select {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.select-wrap{
+  width: 100%;
+  height: 100%;
+}
+.select-cell {
+  width: 100%;
+  height: 100%;
+}
+
+
+.checkboxSelect:before {
+  content: " ";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+.checkboxSelect:after {
+  content: " ";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 50%;
+  left: 50%;
+  margin-top: -6px;
+  margin-left: -6px;
+  border-radius: 2px;
+}
+.active .checkboxSelect:after {
+  background-color: #0076EA;
+}
+
+.radioSelect:before{
+  content:"";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+.radioSelect:after{
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: 50%;
+  left: 50%;
+  margin-top: -4px;
+  margin-left: -4px;
+  border-radius: 50%;
+}
+
+.active .radioSelect:after {
+  background-color: #0076EA;
+} 
+
+ /**exampple**/
+
+.select {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+.select-inner{
+  display: none;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 50%;
+  left: 50%;
+  margin-top: -6px;
+  margin-left: -6px;
+  border-radius: 2px;
+  background-color: red;
+}
+.active .select-inner{
+  display: block;
+}
+/****/ 
+
+.cell-select-style {
+  width: 40px;
+  height: 40px;
+}
+.row-color{
+  height: 40px;
+}
+
+.nodata-tip{
+  text-align: center;
+  color:#6f787e
+}
+
+.grid-loading-wrap{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.grid-loading-mask{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.05);
+}
+.grid-loading{ 
+  width: 120px; 
+  height:120px; 
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  margin-top: -60px;
+  margin-left: -60px;
+  border-radius: 50%;
+  border-top: 1.1em solid rgba(241, 36, 36, 0.8);
+  border-right: 1.1em solid rgba(102, 249, 35, 0.8);
+  border-bottom: 1.1em solid rgba(79, 22, 216, 0.8);
+  border-left: 1.1em solid rgba(255,255,255,.8);
+  -webkit-animation: load 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+
+@-webkit-keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+} 
+
+.el-loading-mask {
+  position: absolute;
+  z-index: 10000;
+  background-color: rgba(255,255,255,.8);
+  margin: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.el-loading-spinner {
+  top: 50%;
+  margin-top: -21px;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+}
+
+.el-loading-spinner .el-loading-text {
+  color: #20a0ff;
+  margin: 3px 0;
+  font-size: 14px;
+}
+.el-loading-spinner .circular {
+  width: 42px;
+  animation: rotate 2s linear infinite;
+}
+.el-loading-spinner .path {
+  animation: dash 1.5s ease-in-out infinite;
+  stroke-dasharray: 1,100;
+  stroke-dashoffset: 0;
+  stroke-width: 2;
+  stroke: #20a0ff;
+  stroke-linecap: round;
+}
+@keyframes rotate {
+  to {
+      transform: rotate(1turn)
+  }
+}
+@keyframes dash {
+  0% {
+      stroke-dasharray: 1,150;
+      stroke-dashoffset: 0
+  }
+
+  50% {
+      stroke-dasharray: 90,150;
+      stroke-dashoffset: -35
+  }
+
+  to {
+      stroke-dasharray: 90,150;
+      stroke-dashoffset: -124
+  }
+}
